@@ -3,27 +3,44 @@
 
 const db = require('./models');
 
-const LouieWish = {
-    item: "Lou Spike men Shoes",
-    description:"Designer Shoes",
-    price: 1200,
-    websiteLink: "http://us.christianlouboutin.com/us_en/shop/men/lou-spikes-men-s-flat.html"
-}
+const wishList = [
+    {
+        item: "Lou Spike men Shoes",
+        description:"Designer Shoes",
+        price: 1200,
+        websiteLink: "http://us.christianlouboutin.com/us_en/shop/men/lou-spikes-men-s-flat.html"
+    },
+    {
+        item:"Monclier maya jacket",
+        description:"overpriced puffer coat",
+        price: 1400,
+        websiteLink:"https://store.moncler.com/en-us/outerwear_cod10045112022146586.html?gclid=EAIaIQobChMIosGyvaa84AIVciCtBh3SzQ01EAQYAiABEgLZUPD_BwE&gclsrc=aw.ds&tp=70950"
+    },
+];
+
+
+
+// const LouieWish = {
+//     item: "Lou Spike men Shoes",
+//     description:"Designer Shoes",
+//     price: 1200,
+//     websiteLink: "http://us.christianlouboutin.com/us_en/shop/men/lou-spikes-men-s-flat.html"
+// }
 
 // CREATING THE LOUIE SHOES IN THE DATABASE
 
-// db.Wish.create(LouieWish, (err, louieshoes) => {
-// if (err) return err;
-// console.log(`Created a new wish ${louieshoes} `);
-// process.exit();
-// })
+db.Wish.create(wishList, (err, wishes) => {
+    if (err) return err;
+    console.log(`Created ${wishes.length} wishes`);
+    process.exit();
+});
 
-const monclierWish = {
-    item:"Monclier maya jacket",
-    description:"overpriced puffer coat",
-    price: 1400,
-    websiteLink:"https://store.moncler.com/en-us/outerwear_cod10045112022146586.html?gclid=EAIaIQobChMIosGyvaa84AIVciCtBh3SzQ01EAQYAiABEgLZUPD_BwE&gclsrc=aw.ds&tp=70950"
-}
+// const monclierWish = {
+//     item:"Monclier maya jacket",
+//     description:"overpriced puffer coat",
+//     price: 1400,
+//     websiteLink:"https://store.moncler.com/en-us/outerwear_cod10045112022146586.html?gclid=EAIaIQobChMIosGyvaa84AIVciCtBh3SzQ01EAQYAiABEgLZUPD_BwE&gclsrc=aw.ds&tp=70950"
+// }
 
 // db.Wish.create(monclierWish, (err, monclerJacket) => {
 // if (err) return err;
