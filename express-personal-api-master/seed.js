@@ -31,7 +31,7 @@ const monclierWish = {
 // process.exit();
 // })
 
-db.Wish.find({}, (err, wishList) => {
+db.Wish.find([{}], (err, wishList) => {
     if (err) {
     console.log(err);
     }
