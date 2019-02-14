@@ -33,7 +33,7 @@ pets:[
  * DATABASE *
  ************/
 
-// const db = require('./models');
+const db = require('./models');
 
 /**********
  * ROUTES *
@@ -75,6 +75,16 @@ app.get('/api', (req, res) => {
 
 app.get('/api/profile', (req,res) => {
   res.json(personalInfo) ;
+})
+
+app.get('/api/wish', (req ,res) => {
+  
+  db.Wish.find({ }, (err, wishList) => {
+    if (err) {
+    console.log(err);
+    }
+    console.log(wishList);
+    });
 })
 
 /**********
