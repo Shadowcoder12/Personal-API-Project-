@@ -3,13 +3,14 @@
 
 const db = require('./models');
 
-// const LouieWish = {
-//     item: "Lou Spike men Shoes",
-//     description:"Designer Shoes",
-//     price: 1200,
-//     websiteLink: "http://us.christianlouboutin.com/us_en/shop/men/lou-spikes-men-s-flat.html"
-// }
+const LouieWish = {
+    item: "Lou Spike men Shoes",
+    description:"Designer Shoes",
+    price: 1200,
+    websiteLink: "http://us.christianlouboutin.com/us_en/shop/men/lou-spikes-men-s-flat.html"
+}
 
+// CREATING THE LOUIE SHOES IN THE DATABASE
 
 // db.Wish.create(LouieWish, (err, louieshoes) => {
 // if (err) return err;
@@ -17,7 +18,20 @@ const db = require('./models');
 // process.exit();
 // })
 
-db.Wish.find({ }, (err, wishList) => {
+const monclierWish = {
+    item:"Monclier maya jacket",
+    description:"overpriced puffer coat",
+    price: 1400,
+    websiteLink:"https://store.moncler.com/en-us/outerwear_cod10045112022146586.html?gclid=EAIaIQobChMIosGyvaa84AIVciCtBh3SzQ01EAQYAiABEgLZUPD_BwE&gclsrc=aw.ds&tp=70950"
+}
+
+// db.Wish.create(monclierWish, (err, monclerJacket) => {
+// if (err) return err;
+// console.log(`Created a new wish ${monclerJacket} `);
+// process.exit();
+// })
+
+db.Wish.find({}, (err, wishList) => {
     if (err) {
     console.log(err);
     }
