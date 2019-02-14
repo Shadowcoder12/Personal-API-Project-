@@ -79,11 +79,11 @@ app.get('/api/profile', (req,res) => {
 
 app.get('/api/wish', (req ,res) => {
   
-  db.Wish.find([{}], (err, wishList) => {
+  db.Wish.find({}, (err, wishList) => {
     if (err) {
     console.log(err);
     }
-    res.json(wishList);
+    res.json({wishList});
     });
 })
 
