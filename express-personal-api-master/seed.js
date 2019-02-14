@@ -17,6 +17,14 @@ const db = require('./models');
 // process.exit();
 // })
 
+db.Wish.find({ }, (err, wishList) => {
+    if (err) {
+    console.log(err);
+    }
+    console.log(wishList);
+    });
+
+
 
 // const new_campsite = {description: "Sharp rocks. Middle of nowhere."}
 
