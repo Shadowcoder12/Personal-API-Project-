@@ -83,7 +83,7 @@ app.get('/api/wish', (req ,res) => {
     if (err) {
     console.log(err);
     }
-    console.log(wishList);
+    res.json(wishList);
     });
 })
 
