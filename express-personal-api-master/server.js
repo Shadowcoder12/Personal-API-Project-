@@ -15,6 +15,19 @@ app.use(function(req, res, next) {
   next();
 });
 
+const personalInfo = {
+firstName: "Leonardo",
+lastName: "Fontenette",
+githubUsername: "lfonzi62",
+githubLink: "https://github.com/lfonzi62",
+githubProfileImage:" ",
+personalSiteLink: "http://www.leonardo-fontenette.com/",
+currentCity:"Oakland",
+pets:[
+{ breed:" Red Toy poddle", name: "bella", attitude:"Sassy", size:"smal"},
+{breed:"Savanah Cat", name:"Rusty", attitude:"Crazy!!", size:"medium" }, ]
+
+}
 /************
  * DATABASE *
  ************/
@@ -58,6 +71,10 @@ app.get('/api', (req, res) => {
     ]
   })
 });
+
+app.get('/api/profile', (req,res) => {
+  res.json(personalInfo) ;
+})
 
 /**********
  * SERVER *
