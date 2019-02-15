@@ -146,7 +146,7 @@ app.post('/api/wish', (req, res) => {
     // logs the saved Wish
     console.log(savedWish);
     // redirects the user to all of the wishes
-    res.redirect('/api/wish');
+    res.redirect('/');
   })
 }) 
 
