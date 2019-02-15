@@ -14,8 +14,23 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-// HARD CODED PERSONAL API INFOMATION
 
+// Checking to see if i am Awake
+let today = new Date().getHours();
+var wakey;
+
+ function leoAwake () {
+if (today >= 8 && today <= 22) {
+wakey = true; }
+else {
+wakey = false; }
+
+ }
+
+ leoAwake();
+
+ // HARD CODED PERSONAL API INFOMATION
+ 
 const personalInfo = {
 firstName: "Leonardo",
 lastName: "Fontenette",
@@ -26,7 +41,8 @@ personalSiteLink: "http://www.leonardo-fontenette.com/",
 currentCity:"Oakland",
 pets:[
 { breed:" Red Toy poddle", name: "bella", attitude:"Sassy", size:"smal"},
-{breed:"Savanah Cat", name:"Rusty", attitude:"Crazy!!", size:"medium" }, ]
+{breed:"Savanah Cat", name:"Rusty", attitude:"Crazy!!", size:"medium" }, ],
+isAwake: wakey
 
 }
 /************
@@ -111,7 +127,10 @@ app.post('/api/wish', (req, res) => {
 
   newWish.save((err, savedWish) => {
     if (err) throw err;
-    res.json(savedWish)
+    // logs the saved Wish
+    console.log(savedWish);
+    // redirects the user to all of the wishes
+    res.redirect('/api/wish');
   })
 }) 
 
