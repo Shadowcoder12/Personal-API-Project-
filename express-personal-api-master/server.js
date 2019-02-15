@@ -170,9 +170,35 @@ db.Wish.findByIdAndRemove({_id:wishId})
 .exec((err, deletedWish) => {
 if (err) throw err;
 res.json(deletedWish);
-})
+});
 
 })
+
+// // Query Param Routes Attempt
+// app.get('/api/wish', (req, res) => {
+//   // logging out our query
+//   console.log(req.query);
+
+//   // saving a part of our query to a variable
+//   let limit = req.query.limit;
+  
+//   db.Wish.find({}, (err, wishList)  => {
+//     if (limit == 2) {
+//       for (let i = 0; i < limit; i++)  {
+//         var element = wishList[i];
+//         console.log(element);
+//       }
+      
+//     }
+
+
+//   })
+//   res.json(element);
+
+  
+//   });
+
+
 /**********
  * SERVER *
  **********/
