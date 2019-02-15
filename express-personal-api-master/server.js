@@ -88,6 +88,19 @@ app.get('/api/wish', (req ,res) => {
     });
 })
 
+
+// get one WISH depending on the id 
+app.get('/api/wish/:id', function (req, res) {
+  // find one book by its id
+  let wishId = req.params.id;
+  // grabs the id for the browser and then populates the Wish field with the relavent data 
+  db.Wish.findOne({ _id: wishId} , (err, foundWish) =>  {
+    res.json(foundWish);
+  });    
+});
+
+
+
 /**********
  * SERVER *
  **********/
