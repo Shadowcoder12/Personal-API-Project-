@@ -4,7 +4,7 @@
 
                                 Welcome to my personal api! Here's what you need to know!
  
-  documentationUrl: "https://github.com/lfonzi62,
+  documentationUrl: https://github.com/lfonzi62,
   "baseUrl": "https://still-dusk-90598.herokuapp.com/",
   "endpoints": [
     {
