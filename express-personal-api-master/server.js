@@ -15,19 +15,30 @@ app.use(function(req, res, next) {
   next();
 });
 
-// Checking to see if i am Awake
-let today = new Date().getHours();
+//  Function that checks and see if i am awake.
+// grabbing the current hour in the day
+let hour = new Date().getHours();
 var wakey;
 
- function leoAwake () {
-if (today >= 8 && today <= 22) {
+function leoAwake () {
+  // if current hour in the day is between 8am and 10pm , wakey is true, else false
+if (hour >= 8 && hour <= 22) {
 wakey = true; }
 else {
 wakey = false; }
 
- }
+}
+// calling function to run
+leoAwake();
 
- leoAwake();
+// saving my b day to a var
+
+const myBirthDay =  new Date(1993, 5, 1);
+// grabbing the current date
+let today = new Date();
+// subtracting the current date from my b day. (result is in miliseconds according to MDN), then converting miliseconds to days
+var daysOld = Math.floor((today - myBirthDay)/(1000 * 60 * 60 * 24));
+
 
  // HARD CODED PERSONAL API INFOMATION
  
@@ -40,9 +51,10 @@ githubProfileImage:" ",
 personalSiteLink: "http://www.leonardo-fontenette.com/",
 currentCity:"Oakland",
 pets:[
-{ breed:" Red Toy poddle", name: "bella", attitude:"Sassy", size:"smal"},
-{breed:"Savanah Cat", name:"Rusty", attitude:"Crazy!!", size:"medium" }, ],
-isAwake: wakey
+{ breed:" Red Toy poddle", name: "Bella", attitude:"Sassy", size:"small"},
+{breed:"African Serval", name:"Pharaoh", attitude:"Crazy!!", size:"medium" }, ],
+amIAwake: wakey,
+age: `I am ${daysOld} days old!`
 
 }
 /************
@@ -84,7 +96,11 @@ app.get('/api', (req, res) => {
     endpoints: [
       {method: "GET", path: "/api", description: "Describes all available endpoints"},
       {method: "GET", path: "/api/profile", description: "Data about me"}, // CHANGE ME
-      {method: "POST", path: "/api/campsites", description: "E.g. Create a new campsite"} // CHANGE ME
+      {method: "GET", path: "/api/wish", description: " Show's all wishes"},
+      {method: "GET", path: "/api/wish/:id", description: " Show's one wish"},
+      {method: "PUT", path: "/api/wish/:id", description: " Update a wish"},
+      {method: "DELETE", path: "/api/wish/:id", description: " Delete a wish"},
+      {method: "POST", path: "/api/wish", description: " Create a new wish"} // CHANGE ME
     ]
   })
 });
