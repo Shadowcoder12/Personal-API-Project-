@@ -1,10 +1,29 @@
 body {
   color: #333;
   font-family: Helvetica, Arial, sans-serif;
-  background-color: skyblue; /* Sanity Check! */
+  text-align: center;
+  background-image: url("../images/logo-wish.jpg");
+  
+
 }
 
 h1 {
   margin-top: 100px;
-  text-align: center;
+  
+}
+
+h2 {
+text-decoration: underline;
+}
+
+.item{
+  font-size: 25px;
+}
+#newWish {
+  margin-bottom: 60px;
+  margin-top: 30px;
+
+}
+.price{
+  color:green;
 }
