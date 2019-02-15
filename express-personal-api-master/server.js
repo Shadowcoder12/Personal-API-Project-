@@ -76,7 +76,7 @@ app.get('/api', (req, res) => {
 app.get('/api/profile', (req,res) => {
   res.json(personalInfo) ;
 })
-
+// SHOW ALL THE WISHES
 app.get('/api/wish', (req ,res) => {
   
   db.Wish.find({}, (err, wishList) => {
@@ -90,6 +90,7 @@ app.get('/api/wish', (req ,res) => {
 
 
 // get one WISH depending on the id 
+
 app.get('/api/wish/:id', function (req, res) {
   // find one book by its id
   let wishId = req.params.id;
@@ -99,8 +100,44 @@ app.get('/api/wish/:id', function (req, res) {
   });    
 });
 
+// creating a new WISH
+app.post('/api/wish', (req, res) => {
+  let newWish = new db.Wish({
+    item: req.body.item,
+    description: req.body.description,
+    price: req.body.price,
+    websiteLink: req.body.websiteLink,
+  });
+
+  newWish.save((err, savedWish) => {
+    if (err) throw err;
+    res.json(savedWish)
+  })
+}) 
 
 
+// UPDATING WISH 
+app.put('/api/wish/:id', (req,res) => {
+
+  let wishId = req.params.id;
+  db.Wish.findByIdAndUpdate({_id: wishId}, req.body, {new:true})
+  .exec((err, updatedWish) => {
+    if (err) throw err;
+    res.json(updatedWish);
+  })
+})
+
+// DESTROY WISH
+app.delete('/api/wish/:id', (req, res) => {
+let wishId = req.params.id;
+db.Wish.findByIdAndRemove({_id:wishId})
+
+.exec((err, deletedWish) => {
+if (err) throw err;
+res.json(deletedWish);
+})
+
+})
 /**********
  * SERVER *
  **********/
