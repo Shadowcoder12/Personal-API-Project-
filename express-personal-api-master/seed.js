@@ -28,6 +28,7 @@ const wishList = [
 
 db.Wish.deleteMany({}, function(err, Wish) {
 console.log(`Deleted ${Wish.length} ${Wish}`);
+// create loops through the wishList array and returns all the seeded wishes
 db.Wish.create(wishList, (err, wishes) => {
     if (err) return err;
     console.log(`Created ${wishes.length} wishes`);
