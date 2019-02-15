@@ -27,27 +27,37 @@
     },
     {
       "method": "GET",
+      
       "path": "/api/wish",
+      
       "description": " Show's all wishes"
     },
     {
       "method": "GET",
+      
       "path": "/api/wish/:id",
+      
       "description": " Show's one wish"
     },
     {
       "method": "PUT",
+      
       "path": "/api/wish/:id",
+      
       "description": " Update a wish"
     },
     {
       "method": "DELETE",
+      
       "path": "/api/wish/:id",
+      
       "description": " Delete a wish"
     },
     {
       "method": "POST",
+      
       "path": "/api/wish",
+      
       "description": " Create a new wish"
     }
   ]
