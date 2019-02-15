@@ -10,16 +10,19 @@
   "baseUrl": "https://still-dusk-90598.herokuapp.com/",
   
   
-  
   "endpoints": [
     {
       "method": "GET",
+      
       "path": "/api",
+      
       "description": "Describes all available endpoints"
     },
     {
       "method": "GET",
+      
       "path": "/api/profile",
+      
       "description": "Data about me"
     },
     {
